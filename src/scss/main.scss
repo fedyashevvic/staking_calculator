@@ -1,0 +1,337 @@
+$w-color: #fff;
+$b-color: #3D3D3D;
+$orange-color: #F2994A;
+$grey-color: #989898;
+$grey-bg: #F6F6F6;
+$red-color: #FF6565;
+$green-color: #2EBD59;
+
+@mixin textSettings($fs, $fw, $fz, $lh, $c) {
+  font-style: $fs;
+  font-weight: $fw;
+  font-size: $fz;
+  line-height: $lh;
+  color: $c;
+}
+%small-button {
+  @include textSettings(normal, bold, 14px, 24px, $orange-color);
+  height: 30px;
+  width: 80px;
+  border: 2px solid $orange-color;
+  box-sizing: border-box;
+  text-align: center;
+  text-decoration: none;
+  transition: 0.3s;
+  &:hover {
+    background: $orange-color;
+    color: $w-color;
+    transition: 0.3s;
+  }
+}
+%big-button {
+  @include textSettings(normal, bold, 16px, 24px, $grey-color);
+  height: 50px;
+  width: 240px;
+  border: 2px solid $b-color;
+  box-sizing: border-box;
+  text-align: center;
+  text-decoration: none;
+  transition: 0.3s;
+  &:hover {
+    background: $grey-color;
+    color: $w-color;
+    transition: 0.3s;
+  }
+}
+%menu-styles {
+  .s__app-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .s__app-logo {
+    width: 20px;
+  }
+  .s__app-nav-container {
+    display: flex;
+    align-items: center;
+  }
+  .s__app-nav-item {
+    list-style: none;
+    padding: 10px 30px;
+
+    a {
+      @include textSettings(normal, 600, 14px, 24px, $b-color);
+      text-decoration: none;
+      &:hover {
+        color: $orange-color;
+        transition: 0.3s;
+      }
+    }
+  }
+  .s__app-nav-button {
+    @extend %small-button;
+  }
+}
+
+%before-arrow {
+  position: absolute;
+  content: '';
+  top: -30px;
+  left: 97px;
+  width: 0;
+  height: 0;
+  border-bottom: 30px solid $w-color;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  z-index: 1;
+}
+
+@import "_header";
+
+.s__app-body {
+  background: $grey-bg;
+  padding: 75px 0px 45px;
+  .s__app-body-container {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    min-height: 500px;
+  }
+  .s__app-item-container {
+    box-sizing: border-box;
+    height: fit-content;
+    margin-bottom: 50px;
+  }
+  .s__app-item {
+    width: 255px;
+    text-align: center;
+    background: $w-color;
+    border-radius: 12px;
+    padding: 45px 0px;
+    box-sizing: border-box;
+    max-height: 270px;
+    img {
+      width: 80px;
+    }
+    &:hover {
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+      cursor: pointer; 
+      transition: 0.3s;
+    }
+  }
+  .s__app-item-title {
+    @include textSettings(normal, bold, 16px, 18px, $b-color);
+  }
+  .s__app-item-subtitle {
+    @include textSettings(normal, bold, 16px, 18px, $grey-color);
+    &.red {
+      color: $red-color;
+    }
+    &.green {
+      color: $green-color;
+    }
+  }
+  .s__app-item-extrainfo {
+    position: absolute;
+    width: 100%;
+    background: $w-color;
+    z-index: 2;
+    left: 0;
+    display: none;
+    transition: 2s;
+    padding: 35px 60px;
+    box-sizing: border-box;
+    &.active{ 
+      display: initial;
+    }
+    &.hidden {
+      display: none;
+    }
+  }
+  .s__app-extra-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .s__app-extra-icon {
+    display: flex;
+    align-items: center;
+    img {
+      width: 80px;
+      height: 80px;
+      margin-right: 40px;
+    }
+  }
+  .s__app-extra-title, .s__app-extra-price {
+    @include textSettings(normal, bold, 40px, 40px, $b-color);
+  }
+  .s__app-extra-interest {
+    @include textSettings(normal, bold, 40px, 40px, $grey-color);
+  }
+  .s__app-extra-sub {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+  }
+  .s__app-extra-description {
+    max-width: 500px;
+    @include textSettings(normal, normal, 18px, 20px, $b-color);
+    span {
+      font-weight: bold;
+    }
+  }
+  .s__app-extra-button {
+    @extend %big-button;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .s_app_income {
+    .s__app-extra-interest, .s__app-extra-price {
+      font-size: 26px;
+      margin-top: 7px;
+      color: $b-color;
+      span.red {
+        color: $red-color;
+      }
+      span.green {
+        color: $green-color;
+      }
+    }
+  }
+  .s__app-arrow-1 {
+    &::before {
+      @extend %before-arrow;
+    }
+  }
+  .s__app-arrow-2 {
+    &::before {
+      @extend %before-arrow;
+      left: 410px;
+    }
+  }
+  .s__app-arrow-3 {
+    &::before {
+      @extend %before-arrow;
+      left: 730px;
+    }
+  }
+  .s__app-arrow-4 {
+    &::before {
+      @extend %before-arrow;
+      left: 1045px;
+    }
+  }
+}
+
+
+
+
+
+.s__app-footer {
+  padding: 40px 0px;
+  @extend %menu-styles;
+  .s__app-copyright {
+    margin-top: 100px;
+    @include textSettings(normal, normal, 12px, 21px, $grey-color);
+  }
+}
+
+
+
+// claculator
+.s__app-calculator {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  .hidden {
+    display: none;
+  }
+  .s__app-amount {
+    margin-top: 25px;
+  }
+  .s__app-calculator-buttons {
+    display: flex;
+    justify-content: center;
+    label {
+      padding: 0px 15px;
+      cursor: pointer;
+    }
+  }
+  .s__app-input-title {
+    @include textSettings(normal, normal, 12px, 18px, $grey-color);
+    margin-top: 80px;
+  }
+  .s__app-calc-inputs {
+    position: relative;
+  }
+  .s__app-currency-select {
+    width: 100px;
+    border-right: 1px solid $b-color;
+    position: absolute;
+    top: 21px;
+    padding: 4px 0px;
+  }
+  .s__app-calc-currency {
+    position: absolute;
+    width: 100%;
+    padding: 0;
+    margin: 0px;
+    margin-top: 10px;
+    &.hidden {
+      display: none;
+    }
+    li {
+      list-style: none;
+      cursor: pointer;
+      padding: 3px 0px;
+      &:hover {
+        color: $grey-color;
+      }
+    }
+  }
+  .s__app-amount {
+    border: none;
+    border-bottom: 1px solid $b-color;
+    width: 544px;
+    outline: none;
+    box-sizing: border-box;
+    padding-left: 120px;
+    padding-bottom: 5px;
+    @include textSettings(normal, normal, 14px, 14px, $grey-color);
+  }
+  .s__app-button {
+    margin-top: 25px;
+    cursor: pointer;
+    &.active-button {
+      background: $b-color;
+      color: $w-color;
+    }
+  }
+  #calculate-button {
+    @include textSettings(normal, bold, 14px, 24px, $orange-color);
+    border: 2px solid $orange-color;
+    margin-top: 80px;
+    &:hover {
+      background: $orange-color;
+      color: $w-color;
+    }
+  }
+}
+
+
+#s__app-preloader {
+  transition: 0.5s;
+  &.active {
+    position: fixed;
+    z-index: 9;
+    background: rgba(255, 255, 255, 0.5);
+    width: 100%;
+    height: 100%;
+    transition: 0.4s;
+  }
+}

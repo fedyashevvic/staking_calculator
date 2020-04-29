@@ -1,0 +1,266 @@
+.s__app-header .s__app-nav-button, .s__app-footer .s__app-nav-button {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 24px;
+  color: #F2994A;
+  height: 30px;
+  width: 80px;
+  border: 2px solid #F2994A;
+  box-sizing: border-box;
+  text-align: center;
+  text-decoration: none;
+  transition: 0.3s; }
+  .s__app-header .s__app-nav-button:hover, .s__app-footer .s__app-nav-button:hover {
+    background: #F2994A;
+    color: #fff;
+    transition: 0.3s; }
+
+.s__app-header .s__app-button {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+  color: #989898;
+  height: 50px;
+  width: 240px;
+  border: 2px solid #3D3D3D;
+  box-sizing: border-box;
+  text-align: center;
+  text-decoration: none;
+  transition: 0.3s; }
+  .s__app-header .s__app-button:hover {
+    background: #989898;
+    color: #fff;
+    transition: 0.3s; }
+
+.s__app-header .s__app-nav, .s__app-footer .s__app-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+
+.s__app-header .s__app-logo, .s__app-footer .s__app-logo {
+  width: 20px; }
+
+.s__app-header .s__app-nav-container, .s__app-footer .s__app-nav-container {
+  display: flex;
+  align-items: center; }
+
+.s__app-header .s__app-nav-item, .s__app-footer .s__app-nav-item {
+  list-style: none;
+  padding: 10px 30px; }
+  .s__app-header .s__app-nav-item a, .s__app-footer .s__app-nav-item a {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
+    color: #3D3D3D;
+    text-decoration: none; }
+    .s__app-header .s__app-nav-item a:hover, .s__app-footer .s__app-nav-item a:hover {
+      color: #F2994A;
+      transition: 0.3s; }
+
+.s__app-body .s__app-arrow-1::before, .s__app-body .s__app-arrow-2::before, .s__app-body .s__app-arrow-3::before, .s__app-body .s__app-arrow-4::before {
+  position: absolute;
+  content: '';
+  top: -30px;
+  left: 97px;
+  width: 0;
+  height: 0;
+  border-bottom: 30px solid #fff;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  z-index: 1; }
+
+body {
+  background-color: #fff;
+  font-family: Montserrat;
+  font-style: normal; }
+
+.max-width {
+  max-width: 1200px;
+  margin: 0 auto; }
+
+.s__app-header {
+  margin: 20px auto 0px; }
+  .s__app-header .s__app-titles-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center; }
+  .s__app-header .s__app-title {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 70px;
+    line-height: 70px;
+    color: #3D3D3D;
+    margin-top: 100px; }
+  .s__app-header .s__app-subtitle {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    color: #3D3D3D; }
+  .s__app-header .s__app-buttons-container {
+    max-width: 555px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-top: 80px; }
+  .s__app-header .s__app-button {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  .s__app-header .s__app-header-bg {
+    width: 100%;
+    height: 376px;
+    margin-top: 70px;
+    background: url(d63c2b50a1abffa8f171c9d4116c8cde.svg) no-repeat;
+    background-size: 100%; }
+  .s__app-header .s__app-header-arrow {
+    text-align: center;
+    animation: arrow 0.5s linear alternate infinite; }
+
+@keyframes arrow {
+  0% {
+    transform: translate(0px, 0px); }
+  100% {
+    transform: translate(0px, 10px); } }
+
+.s__app-body {
+  background: #F6F6F6;
+  padding: 75px 0px 45px; }
+  .s__app-body .s__app-body-container {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    min-height: 500px; }
+  .s__app-body .s__app-item-container {
+    box-sizing: border-box;
+    height: fit-content;
+    margin-bottom: 50px; }
+  .s__app-body .s__app-item {
+    width: 255px;
+    text-align: center;
+    background: #fff;
+    border-radius: 12px;
+    padding: 45px 0px;
+    box-sizing: border-box;
+    max-height: 270px; }
+    .s__app-body .s__app-item img {
+      border-radius: 50%;
+      width: 80px; }
+    .s__app-body .s__app-item:hover {
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+      cursor: pointer;
+      transition: 0.3s; }
+  .s__app-body .s__app-item-title {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 18px;
+    color: #3D3D3D; }
+  .s__app-body .s__app-item-subtitle {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 18px;
+    color: #989898; }
+  .s__app-body .s__app-item-extrainfo {
+    position: absolute;
+    width: 100%;
+    background: #fff;
+    z-index: 2;
+    left: 0;
+    max-height: 200px;
+    display: none;
+    transition: 0.2s; }
+    .s__app-body .s__app-item-extrainfo.active {
+      display: initial;
+      transition: 0.2s; }
+    .s__app-body .s__app-item-extrainfo.hidden {
+      display: none; }
+  .s__app-body .s__app-arrow-2::before {
+    left: 410px; }
+  .s__app-body .s__app-arrow-3::before {
+    left: 730px; }
+  .s__app-body .s__app-arrow-4::before {
+    left: 1045px; }
+
+.s__app-footer {
+  padding: 40px 0px; }
+  .s__app-footer .s__app-copyright {
+    margin-top: 100px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 21px;
+    color: #989898; }
+
+.s__app-calculator {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center; }
+  .s__app-calculator .hidden {
+    display: none; }
+  .s__app-calculator .s__app-amount {
+    margin-top: 25px; }
+  .s__app-calculator .s__app-calculator-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px; }
+    .s__app-calculator .s__app-calculator-buttons label {
+      padding: 0px 15px;
+      cursor: pointer; }
+  .s__app-calculator .s__app-calc-inputs {
+    position: relative; }
+  .s__app-calculator .s__app-currency-select {
+    width: 100px;
+    border-right: 1px solid #3D3D3D;
+    position: absolute;
+    top: 21px;
+    padding: 4px 0px; }
+  .s__app-calculator .s__app-calc-currency {
+    position: absolute;
+    width: 100%;
+    padding: 0;
+    margin: 0px;
+    margin-top: 10px; }
+    .s__app-calculator .s__app-calc-currency.hidden {
+      display: none; }
+    .s__app-calculator .s__app-calc-currency li {
+      list-style: none;
+      cursor: pointer;
+      padding: 3px 0px; }
+      .s__app-calculator .s__app-calc-currency li:hover {
+        color: #989898; }
+  .s__app-calculator .s__app-amount {
+    border: none;
+    border-bottom: 1px solid #3D3D3D;
+    width: 544px;
+    outline: none;
+    box-sizing: border-box;
+    padding-left: 120px;
+    padding-bottom: 5px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 14px;
+    color: #989898; }
+  .s__app-calculator .s__app-button {
+    margin-top: 25px;
+    cursor: pointer; }
+    .s__app-calculator .s__app-button.active-button {
+      background: #3D3D3D;
+      color: #fff; }
+
+#s__app-preloader {
+  transition: 0.5s; }
+  #s__app-preloader.active {
+    position: fixed;
+    z-index: 9;
+    background: rgba(255, 255, 255, 0.5);
+    width: 100%;
+    height: 100%;
+    transition: 0.4s; }
