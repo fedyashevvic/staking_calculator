@@ -1,5 +1,9 @@
 import ItemAbstract from "./card-companent.js";
 
+const Condition = {
+  DEFAULT: `default`,
+  OPENED: `opened`
+}
 
 // const offset = document.querySelector(`.s__app-body`).offsetTop;
 const getCalcItemTemplate = (data, profitInCoin, changeInPercent, profitInBasic, changeXinPercent, currency) => {
@@ -26,11 +30,6 @@ const getCalcItemTemplate = (data, profitInCoin, changeInPercent, profitInBasic,
     <section>`
   );
 };
-
-const Condition = {
-  DEFAULT: `default`,
-  OPENED: `opened`
-}
 
 export default class ItemCalcTemplate extends ItemAbstract {
   constructor(itemData, profitInCoin, changeInPercent, profitInBasic, changeXinPercent, currency) {
