@@ -68,7 +68,6 @@ const returnActiveCheckbox = () => {
       checkedEl.valueInNum = it.getAttribute(`data-period`);
     }
   }); 
-  console.log(checkedEl)
   return checkedEl;
 }
 

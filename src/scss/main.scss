@@ -323,15 +323,4 @@ $green-color: #2EBD59;
   }
 }
 
-
-#s__app-preloader {
-  transition: 0.5s;
-  &.active {
-    position: fixed;
-    z-index: 9;
-    background: rgba(255, 255, 255, 0.5);
-    width: 100%;
-    height: 100%;
-    transition: 0.4s;
-  }
-}
+@import "_preloader";

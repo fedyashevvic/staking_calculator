@@ -23,12 +23,13 @@ export default class AppController {
     this._preloader = document.querySelector(`#s__app-preloader`);
     this._renderedItems = [];
     this._calculatorClickHandler = this._calculatorClickHandler.bind(this);
+    this._renderStartCards = this._renderStartCards.bind(this);
   }
   render() {
-    this._dataModule.renderData();
-    this.setData();
-    this._renderStartCards(this._data);
-    submitCulculatorButton.addEventListener(`click`, this._calculatorClickHandler);
+    this._dataModule.renderData(this._renderStartCards);
+    if (submitCulculatorButton) { 
+      submitCulculatorButton.addEventListener(`click`, this._calculatorClickHandler);
+    }
   }
   setData() {
     this._data = this._dataModule.getData();
@@ -40,20 +41,19 @@ export default class AppController {
 
   }
   _renderStartCards(data) {
+    this._data = data;
     renderItems(this._container, data);
     setTimeout (() => {
       this._preloader.classList.remove(`active`);
     }, 500);
   }
   _calculatorClickHandler() {
-    console.log(this._container)
     const offset = document.querySelector(`.s__app-body`).offsetTop;
     const amount = parseFloat(amountInput.value);
     const period = returnActiveCheckbox();
     const currency = document.querySelector(`div[name="currency"]`).getAttribute(`value`);
 
     if (amount && period && currency) {
-      console.log(this._container)
       this._container.innerHTML = ``;
       this._data.forEach(it => {
         const itInterest = parseFloat(it.stakingRate);

@@ -8,7 +8,7 @@ const getCalcItemTemplate = (data, profitInCoin, changeInPercent, profitInBasic,
       <div class="s__app-item">
         <img src="${data.image.large}" alt="${data.name}">
         <h4 class="s__app-item-title">${data.name}</h4>
-        <p class="s__app-item-subtitle">${profitInCoin} ${data.symbol.toUpperCase()}</p>
+        <p class="s__app-item-subtitle">${profitInCoin.toFixed(4)} ${data.symbol.toUpperCase()}</p>
         <p class="s__app-item-subtitle ${profitInBasic > 0 ? `green` : `red`}">${currency === `usd` ? `$` : ``} ${profitInBasic} ${currency !== `usd` ? currency.toUpperCase() : ``}</p>
       </div>
       <div class="s__app-item-extrainfo" id="${data.name}">
@@ -20,8 +20,8 @@ const getCalcItemTemplate = (data, profitInCoin, changeInPercent, profitInBasic,
           <div class="s__app-extra-description">The <span>${data.name}</span> market cap is <span>$ ${data.market_data.market_cap.usd}</span> and the 24h volume is <span>${data.market_data.total_volume.usd}</span>. </div>
       </div>
       <div class="s_app_income">
-        <div class="s__app-extra-interest">${profitInCoin > 0 ? `+` : ``}${profitInCoin} ${data.symbol.toUpperCase()} <span class="${profitInCoin > 0 ? `green` : `red`}">(${changeInPercent}%)</span></div>
-        <div class="s__app-extra-price">${profitInBasic > 0 ? `+` : ``}${profitInBasic} ${currency.toUpperCase()} <span class="${profitInBasic > 0 ? `green` : `red`}">(${changeXinPercent}%)</span></div>
+        <div class="s__app-extra-interest">${profitInCoin > 0 ? `+` : ``}${profitInCoin.toFixed(4)} ${data.symbol.toUpperCase()} <span class="${profitInCoin > 0 ? `green` : `red`}">(${parseFloat(changeInPercent, 10).toFixed(2)}%)</span></div>
+        <div class="s__app-extra-price">${profitInBasic > 0 ? `+` : ``}${parseFloat(profitInBasic, 10).toFixed(4)} ${currency.toUpperCase()} <span class="${profitInBasic > 0 ? `green` : `red`}">(${parseFloat(changeXinPercent, 10).toFixed(2)}%)</span></div>
       </div>
     <section>`
   );

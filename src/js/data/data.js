@@ -11,34 +11,28 @@ export default class DataModule {
   constructor() {
     this._localStorageData = localStorage.getItem(`coins`);
     this._localStorageTimestamp = localStorage.getItem(`timestamp`);
-    this._returnData = false;
     this._data = [];
     this._promises = [];
   }
-  renderData() {
+
+  _getData(ticker) {
+    return fetch(`https://api.coingecko.com/api/v3/coins/${ticker}?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false`)
+      .then(response => response.json())
+      .then(json => this._data.push(json));
+  }
+  renderData(renderFunc) {
     if (this._localStorageData && (Date.now() - this._localStorageTimestamp < MIN_5)) {
       this._data = this._getLocalStorageData();
-      this._returnData = true;
+      renderFunc(this._data);
     } else {
-      coins.forEach((it) => {
-        this._promises.push(new Promise((resolve, reject) => {
-          fetch(`https://api.coingecko.com/api/v3/coins/${it.toLowerCase()}?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false`)
-          .then(response => response.json())
-          .then(json => {
-            this._data.push(json);
-            resolve();
-          })
-          .catch(err => console.error(err));
-        }));
+      const dataRequest = coins.map((coin) => {
+        return this._getData(coin.toLowerCase());
       });
-
-      Promise.all(this._promises).then(() => {
-        this._sortQueryData();
-      })
-      .then(() => {
-        this._reWriteLocalStorage();
-      })
-      .then(() => this._returnData = true); 
+    
+      Promise.all(dataRequest)
+        .then(() => this._sortQueryData())
+        .then(() => this._reWriteLocalStorage())
+        .then(() => renderFunc(this._data));
     }
   }
   _getLocalStorageData() {
